@@ -1,9 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const { getServerStats } = require('../controllers/stats');
 
-/* Site stats page. */
+/**
+ * API endpoint to get the stats in json. 
+ */ 
 router.get('/', (req, res) => {
-  res.send('The server statistics page is under construction.')
+  getServerStats(function(err, result) {
+    if (err) {
+      res.send(JSON.stringify({'error':err.message}));
+    } else {
+      res.send(JSON.stringify(result));
+    }
+  });    
 });
 
 module.exports = router;
