@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
 const statsRouter = require('./routes/stats');
+const statPageRouter = require('./routes/statpage');
 const mongoose = require('./db/mongoose');
 const { saveRequestStatus } = require('./controllers/stats');
 
@@ -40,6 +41,7 @@ app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/stats', statsRouter);
+app.use('/statpage', statPageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

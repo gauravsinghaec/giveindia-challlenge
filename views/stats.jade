@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    main(role="main")
+      section
+        h1 Server Statistics
+        div(class = "container")
+          div(class ="row method")
+            div(class ="col col-head") HTTP Methods
+            div(class ="col") GET (
+              span(class="get-count") 0
+              span )
+            div(class ="col") POST (
+              span(class="post-count") 0
+              span )
+            div(class ="col") PUT (
+              span(class="put-count") 0
+              span )
+            div(class ="col") DELETE (
+              span(class="del-count") 0
+              span )
+          div(class ="row res-time")
+            div(class ="col col-head") Avg Response Time 
+            div(class ="col get-content") 
+            div(class ="col post-content") 
+            div(class ="col put-content") 
+            div(class ="col del-content") 
