@@ -3,3 +3,11 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  a(href="/process") 
+    strong Process API
+  span  : There will be delay in response, so hang in there
+  br
+  br
+  a(href="/stats") 
+    strong Server Stats Page
+  span  : See the real-time server statistics
