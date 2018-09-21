@@ -5,8 +5,9 @@ const { getServerStats } = require('../controllers/stats');
 /**
  * API endpoint to get the stats in json. 
  */ 
-router.get('/', (req, res) => {
-  getServerStats(function(err, result) {
+router.get('/:period?', (req, res) => {
+  let { period } = req.params;
+  getServerStats(period, function(err, result) {
     if (err) {
       res.send(JSON.stringify({'error':err.message}));
     } else {

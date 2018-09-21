@@ -27,9 +27,14 @@ const saveRequestStatus = (statsObj, callback) => {
  * @returns:
  * 		callback (data type: function object)
  */
-const getServerStats = (callback) => {    
+const getServerStats = (period=0, callback) => {    
+  const queryFilter = { $and: [{'http_method':{$exists:true}}] };  
+    if (period) { 
+      const ISODate = new Date(Date.now() - 1000 * 60 * period).toISOString();
+      queryFilter.$and.push({"created": {"$gte": ISODate}}); 
+    }        
   // return all the stats documents
-  Stats.find({},{http_method:1,res_time:1},function (err,data) {
+  Stats.find(queryFilter,{http_method:1,res_time:1},function (err,data) {
     if (err) callback(err); 
     callback(undefined, data);
   });
