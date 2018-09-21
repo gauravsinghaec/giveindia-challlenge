@@ -4,6 +4,14 @@ block content
     main(role="main")
       section
         h1 Server Statistics
+        form()
+          label(for="period" aria-describedby="")
+            span Stats for last 
+            input(id="period", type="number", name="period", 
+              min="0" step="30" placeholder="enter minutes", autocomplete="number")
+          button(type="button", id="filter") FILTER
+          p(id="help-text") 
+            em search with empty feilds to get full server stats          
         div(class = "container")
           div(class ="row method")
             div(class ="col col-head") HTTP Methods

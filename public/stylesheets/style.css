@@ -16,6 +16,7 @@ a {
   border-bottom-width: 1px;
   border: 1px solid;
   padding: 5px;
+  height: 1.2em;
 }
 .col-head {
   width: 20%;
@@ -34,4 +35,17 @@ a {
   .container {
     display: flex;
   }
+}
+
+button#filter {
+  background: #86cbf2;
+  padding: 5px;
+}
+
+p#help-text {
+  font-size: 0.9em;
+}
+
+input#period {
+  padding: 5px;
 }
